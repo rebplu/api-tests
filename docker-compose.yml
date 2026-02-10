@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   openrefine:
-    image: openrefine/openrefine::3.9.5
+    image: openrefine/openrefine:3.9.5
     ports:
       - "3333:3333"
     volumes:
