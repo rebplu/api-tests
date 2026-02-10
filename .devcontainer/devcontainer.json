@@ -1,0 +1,8 @@
+{
+  "name": "OpenRefine Codespace",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "openrefine",
+  "forwardPorts": [3333],
+  "postCreateCommand": "echo 'OpenRefine läuft auf Port 3333'",
+  "shutdownAction": "stopCompose"
+}
