@@ -1,0 +1,13 @@
+name: 'demo-reconsiling-service'
+services:
+  app:
+    build:
+      target: app
+
+  # the only reason this is needed currently is the bug here: https://github.com/rstudio/plumber/issues/836
+  # with an open PR here: https://github.com/rstudio/plumber/pull/977
+  reverse-proxy-local:
+    build:
+      target: reverse_proxy
+    ports:
+      - "8000:8000"

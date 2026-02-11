@@ -1,0 +1,187 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+
+/* End reset */
+
+html,
+body {
+    font-family: var(--leu-font-family-regular);
+    overflow-x: hidden;
+    font-synthesis: none;
+}
+
+* {
+    font-feature-settings: var(--leu-t-font-feature-settings) !important;
+}
+
+header {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: calc(48rem + (var(--leu-grid-gap) * 2));
+    width: 100%;
+    padding: var(--leu-grid-gap);
+}
+
+.title-group {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* optional: Text und Logo zentrieren */
+    gap: 1rem;
+    background-color: var(--leu-color-accent-blue); /* oder direkt z. B. #005bbb */
+    color: white;
+    padding: 2rem 1rem; /* Innenabstand für Luft */
+    width: 100vw; /* über gesamte Bildschirmbreite */
+}
+
+.title-group h1 {
+	font: var(--leu-t-curve-big-black-font); 
+    color: white; 
+	margin: 0;
+}
+
+.title-group img {
+    height: 150px;
+    width: auto;
+    filter: brightness(0) invert(1); /* falls Logo aktuell dunkel ist */
+}
+
+
+.highlight-box {
+    display: block;             /* Macht die Box klickbar über die gesamte Fläche */
+    background-color: var(--leu-color-accent-blue); 
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    text-align: center;
+    color: white;
+    font: var(--leu-t-curve-regular-black-font);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.highlight-box:hover {
+    background-color: color-mix(in srgb, var(--leu-color-accent-blue) 90%, black 10%);
+}
+
+h1 {
+    font: var(--leu-t-curve-big-black-font);
+    margin: 0;
+}
+
+h2 {
+    font: var(--leu-t-curve-medium-black-font);
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 1rem;
+}
+
+h3 {
+    font: var(--leu-t-curve-regular-black-font);
+}
+
+p {
+    font: var(--leu-t-curve-regular-regular-font);
+    color: var(--leu-color-black-60);
+    margin-bottom: 1.5rem;
+}
+
+a {
+    border-bottom: 1px solid var(--leu-color-accent-blue);
+    color: inherit;
+    hyphens: manual;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--leu-color-black-100);
+    border-color: currentColor;
+}
+
+.link-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.link-list li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    border-top: 1px solid var(--leu-color-black-20);
+    margin-top: 3rem;
+    padding-top: 1rem;
+    font: var(--leu-t-small-regular-font);
+    color: var(--leu-color-black-60);
+}
+
+.message {
+    display: block;
+    margin-bottom: 2rem;
+}

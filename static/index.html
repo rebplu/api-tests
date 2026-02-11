@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Gebietsstammdaten – Kanton Zürich</title>
+  <link rel="stylesheet" href="styles/fonts.css" />
+  <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script type="module">
+    import "https://esm.sh/@statistikzh/leu@0.20.0/leu-message.js"
+  </script>
+</head>
+<body>
+    <header>
+      <div class="title-group">
+        <img src="logo.svg" alt="Logo Kanton Zürich" />
+        <div>
+          <h1>API Gebietsstammdaten Kanton Zürich</h1>
+        </div>
+      </div>
+    </header>
+  <div class="container">
+    <leu-message class="message" style="--leu-message-accent-color: unset;" type="error" size="large">
+      <strong>Beta-Version</strong><br>
+      Diese API befindet sich derzeit in der Test- und Weiterentwicklungsphase.
+      Requests und Rückgabewerte können sich noch ändern.
+    </leu-message>
+
+    <main>
+      <section id="api-info">
+        <p>
+          Die API zu den Gebietsstammdaten ermöglicht den einfachen Zugriff auf aktuelle und qualitätsgesicherte Daten
+          zu Gemeinden, Bezirken und Raumplanungsregionen des Kantons Zürich.
+          Sie liefert Daten im JSON-Format und unterstützt Abfragen nach Gebietstypen und Zeitständen.
+        </p>
+        <p>
+          Basis-Endpunkt:
+          <code>https://gebietsstammdaten.statistik.zh.ch/api</code>
+        </p>
+<ul class="link-list">
+  <li>
+    <a class="highlight-box"
+       href="https://gebietsstammdaten.statistik.zh.ch/api/__docs__/#/"
+       target="_blank"
+       rel="noopener noreferrer">
+      🔗 zur API-Dokumentation
+    </a>
+  </li>
+</ul>
+      </section>
+
+
+      <section id="roadmap">
+        <h2>Geplante Weiterentwicklungen</h2>
+        <h3>Erweiterung der Daten</h3>
+        <p>
+          Die Gebietsstammdaten und somit die API-Requests werden schrittweise um weitere Attribute
+          (wie beispielsweise Koordinaten) und Gebietstypen (wie beispielsweise Schulgemeinden) ergänzt.
+        </p>
+        <h3>Reconcile Service für OpenRefine</h3>
+        <p>
+          Die API soll mit einem Reconcile-Service für OpenRefine ergänzt werden.
+          Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten
+          ohne Programmierkenntnisse möglich.
+        </p>
+      </section>
+      <section id="contact">
+        <ul class="link-list">
+          <li>
+            <a href="https://github.com/statistikZH/gebietsstammdaten_zh/tree/main?tab=readme-ov-file#kontakt"
+              target="_blank" rel="noopener noreferrer">
+              Fragen oder Feedback zur Weiterentwicklung der API?</a>
+          </li>
+        </ul>
+      </section>
+      <section id="links">
+        <h2>Weiterführende Links</h2>
+        <ul class="link-list">
+          <li>
+            🔗 <a href="https://github.com/statistikZH/gebietsstammdaten_zh/blob/main/api/README.md" target="_blank"
+              rel="noopener noreferrer">
+              Beispielabfragen zur API in Curl und R</a>
+          </li>
+          <li>
+            🔗 <a
+              href="https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich"
+              target="_blank" rel="noopener noreferrer">
+              Gebietsstammdaten im Datenkatalog</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      © 2025 Statistisches Amt des Kantons Zürich
+    </footer>
+  </div>
+</body>
+</html>

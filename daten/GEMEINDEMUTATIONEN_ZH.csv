@@ -1,0 +1,23 @@
+"MUTATIONSTYP","GEMEINDE_CODE_ALT","GEMEINDE_NAME_ALT","GEMEINDE_CODE_NEU","GEMEINDE_NAME_NEU","MUTATIONSDATUM"
+"Fusion",21,"Adlikon",291,"Andelfingen",2023-01-01
+"Fusion",30,"Andelfingen",291,"Andelfingen",2023-01-01
+"Fusion",32,"Humlikon",291,"Andelfingen",2023-01-01
+"Fusion",36,"Oberstammheim",292,"Stammheim",2019-01-01
+"Fusion",42,"Unterstammheim",292,"Stammheim",2019-01-01
+"Fusion",44,"Waltalingen",292,"Stammheim",2019-01-01
+"Fusion",132,"Hirzel",295,"Horgen",2018-01-01
+"Fusion",133,"Horgen",295,"Horgen",2018-01-01
+"Fusion",134,"Hütten",293,"Wädenswil",2019-01-01
+"Fusion",140,"Schönenberg (ZH)",293,"Wädenswil",2019-01-01
+"Fusion",142,"Wädenswil",293,"Wädenswil",2019-01-01
+"Fusion",171,"Bauma",297,"Bauma",2015-01-01
+"Fusion",174,"Illnau-Effretikon",296,"Illnau-Effretikon",2016-01-01
+"Fusion",175,"Kyburg",296,"Illnau-Effretikon",2016-01-01
+"Fusion",179,"Sternenberg",297,"Bauma",2015-01-01
+"Fusion",212,"Bertschikon",298,"Wiesendangen",2014-01-01
+"Fusion",217,"Elgg",294,"Elgg",2018-01-01
+"Fusion",222,"Hofstetten (ZH)",294,"Elgg",2018-01-01
+"Fusion",229,"Wiesendangen",298,"Wiesendangen",2014-01-01
+"Namensänderung",222,"Hofstetten bei Elgg",222,"Hofstetten (ZH)",2003-01-01
+"Namensänderung",226,"Schlatt",226,"Schlatt (ZH)",1999-01-01
+"Namensänderung",241,"Aesch bei Birmensdorf",241,"Aesch (ZH)",2003-01-01

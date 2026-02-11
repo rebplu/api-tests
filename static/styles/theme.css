@@ -1,0 +1,626 @@
+:root,
+:host {
+  --leu-color-black-100: #000;
+  --leu-color-black-80: #333;
+  --leu-color-black-60: #666;
+  --leu-color-black-40: #949494;
+  --leu-color-black-20: #ccc;
+  --leu-color-black-10: #f0f0f0;
+  --leu-color-black-5: #f7f7f7;
+  --leu-color-black-0: #fffffe;
+
+  --leu-color-black-transp-80: rgba(0, 0, 0, 0.8);
+  --leu-color-black-transp-60: rgba(0, 0, 0, 0.6);
+  --leu-color-black-transp-40: rgba(0, 0, 0, 0.4);
+  --leu-color-black-transp-20: rgba(0, 0, 0, 0.2);
+  --leu-color-black-transp-10: rgba(0, 0, 0, 0.1);
+  --leu-color-black-transp-5: rgba(0, 0, 0, 0.05);
+
+  --leu-color-white-transp-90: rgba(255, 255, 255, 0.9);
+  --leu-color-white-transp-70: rgba(255, 255, 255, 0.7);
+  --leu-color-white-transp-40: rgba(255, 255, 255, 0.4);
+  --leu-color-white-transp-10: rgba(255, 255, 255, 0.1);
+
+  --leu-color-accent-blue: #0076bd;
+  --leu-color-accent-darkblue: #00407c;
+  --leu-color-accent-turquoise: #00797b;
+  --leu-color-accent-green: #1a7f1f;
+  --leu-color-accent-bordeaux: #b01657;
+  --leu-color-accent-magenta: #d40053;
+  --leu-color-accent-violet: #7f3da7;
+  --leu-color-accent-gray: var(--leu-color-black-60);
+
+  --leu-color-accent-blue-soft: #edf5fa;
+  --leu-color-accent-darkblue-soft: #e0e8ee;
+  --leu-color-accent-turquoise-soft: #e8f3f2;
+  --leu-color-accent-green-soft: #ebf6eb;
+  --leu-color-accent-bordeaux-soft: #f6e3ea;
+  --leu-color-accent-magenta-soft: #fcedf3;
+  --leu-color-accent-violet-soft: #ece2f1;
+  --leu-color-accent-gray-soft: var(--leu-color-black-10);
+
+  --leu-color-func-cyan: #009ee0;
+  --leu-color-func-red: #d93c1a;
+  --leu-color-func-green: #1a7f1f;
+
+  /* stylelint-disable value-keyword-case */
+  --leu-font-family-regular:
+    "InterRegular", "HelveticaNowRegular", "Helvetica", sans-serif;
+  --leu-font-family-black:
+    "InterBlack", "HelveticaNowBlack", "Arial Black", "Helvetica", sans-serif;
+  /* stylelint-enable value-keyword-case */
+
+  --leu-box-shadow-short: 0px 0px 2px var(--leu-color-black-transp-40);
+  --leu-box-shadow-regular: 0px 0px 16px var(--leu-color-black-transp-20);
+  --leu-box-shadow-long: 0px 0px 80px var(--leu-color-black-transp-20);
+
+  --leu-z-index-popup: 100;
+
+  --leu-t-tiny-regular-font-size: 0.75rem;
+
+  --leu-t-tiny-regular-line-height: 1.5;
+
+  --leu-t-tiny-regular-spacing: 0.5625rem;
+
+  --leu-t-tiny-regular-font: normal var(--leu-t-tiny-regular-font-size) / var(--leu-t-tiny-regular-line-height) var(--leu-font-family-regular);
+
+  --leu-t-tiny-black-font-size: 0.75rem;
+
+  --leu-t-tiny-black-line-height: 1.5;
+
+  --leu-t-tiny-black-spacing: 0.5625rem;
+
+  --leu-t-tiny-black-font: normal var(--leu-t-tiny-black-font-size) / var(--leu-t-tiny-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-small-regular-font-size: 0.875rem;
+
+  --leu-t-small-regular-line-height: 1.4;
+
+  --leu-t-small-regular-spacing: 0.625rem;
+
+  --leu-t-small-regular-font: normal var(--leu-t-small-regular-font-size) / var(--leu-t-small-regular-line-height) var(--leu-font-family-regular);
+
+  --leu-t-small-black-font-size: 0.875rem;
+
+  --leu-t-small-black-line-height: 1.4;
+
+  --leu-t-small-black-spacing: 0.625rem;
+
+  --leu-t-small-black-font: normal var(--leu-t-small-black-font-size) / var(--leu-t-small-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-regular-regular-font-size: 1rem;
+
+  --leu-t-regular-regular-line-height: 1.5;
+
+  --leu-t-regular-regular-spacing: 0.75rem;
+
+  --leu-t-regular-regular-font: normal var(--leu-t-regular-regular-font-size) / var(--leu-t-regular-regular-line-height) var(--leu-font-family-regular);
+
+  --leu-t-regular-black-font-size: 1rem;
+
+  --leu-t-regular-black-line-height: 1.5;
+
+  --leu-t-regular-black-spacing: 0.75rem;
+
+  --leu-t-regular-black-font: normal var(--leu-t-regular-black-font-size) / var(--leu-t-regular-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-bigger-regular-regular-font-size: 1.125rem;
+
+  --leu-t-bigger-regular-regular-line-height: 1.5;
+
+  --leu-t-bigger-regular-regular-spacing: 0.8125rem;
+
+  --leu-t-bigger-regular-regular-font: normal var(--leu-t-bigger-regular-regular-font-size) / var(--leu-t-bigger-regular-regular-line-height) var(--leu-font-family-regular);
+
+  --leu-t-bigger-regular-black-font-size: 1.125rem;
+
+  --leu-t-bigger-regular-black-line-height: 1.3;
+
+  --leu-t-bigger-regular-black-spacing: 0.75rem;
+
+  --leu-t-bigger-regular-black-font: normal var(--leu-t-bigger-regular-black-font-size) / var(--leu-t-bigger-regular-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-medium-regular-font-size: 1.25rem;
+
+  --leu-t-medium-regular-line-height: 1.5;
+
+  --leu-t-medium-regular-spacing: 0.9375rem;
+
+  --leu-t-medium-regular-font: normal var(--leu-t-medium-regular-font-size) / var(--leu-t-medium-regular-line-height) var(--leu-font-family-regular);
+
+  --leu-t-medium-black-font-size: 1.25rem;
+
+  --leu-t-medium-black-line-height: 1.3;
+
+  --leu-t-medium-black-spacing: 0.8125rem;
+
+  --leu-t-medium-black-font: normal var(--leu-t-medium-black-font-size) / var(--leu-t-medium-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-large-regular-font-size: 1.5rem;
+
+  --leu-t-large-regular-line-height: 1.5;
+
+  --leu-t-large-regular-spacing: 1.125rem;
+
+  --leu-t-large-regular-font: normal var(--leu-t-large-regular-font-size) / var(--leu-t-large-regular-line-height) var(--leu-font-family-regular);
+
+  --leu-t-large-black-font-size: 1.5rem;
+
+  --leu-t-large-black-line-height: 1.3;
+
+  --leu-t-large-black-spacing: 0.9375rem;
+
+  --leu-t-large-black-font: normal var(--leu-t-large-black-font-size) / var(--leu-t-large-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-small-big-black-font-size: 1.75rem;
+
+  --leu-t-small-big-black-line-height: 1.2;
+
+  --leu-t-small-big-black-spacing: 1.0625rem;
+
+  --leu-t-small-big-black-font: normal var(--leu-t-small-big-black-font-size) / var(--leu-t-small-big-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-big-black-font-size: 2rem;
+
+  --leu-t-big-black-line-height: 1.2;
+
+  --leu-t-big-black-spacing: 1.1875rem;
+
+  --leu-t-big-black-font: normal var(--leu-t-big-black-font-size) / var(--leu-t-big-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-bigger-big-black-font-size: 2.5rem;
+
+  --leu-t-bigger-big-black-line-height: 1.2;
+
+  --leu-t-bigger-big-black-spacing: 1.5rem;
+
+  --leu-t-bigger-big-black-font: normal var(--leu-t-bigger-big-black-font-size) / var(--leu-t-bigger-big-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-small-huge-black-font-size: 3rem;
+
+  --leu-t-small-huge-black-line-height: 1;
+
+  --leu-t-small-huge-black-spacing: 1.5rem;
+
+  --leu-t-small-huge-black-font: normal var(--leu-t-small-huge-black-font-size) / var(--leu-t-small-huge-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-huge-black-font-size: 3.5rem;
+
+  --leu-t-huge-black-line-height: 1;
+
+  --leu-t-huge-black-spacing: 1.75rem;
+
+  --leu-t-huge-black-font: normal var(--leu-t-huge-black-font-size) / var(--leu-t-huge-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-giant-black-font-size: 4.5rem;
+
+  --leu-t-giant-black-line-height: 1;
+
+  --leu-t-giant-black-spacing: 2.25rem;
+
+  --leu-t-giant-black-font: normal var(--leu-t-giant-black-font-size) / var(--leu-t-giant-black-line-height) var(--leu-font-family-black);
+
+  --leu-t-curve-tiny-regular-font-size:  var(--leu-t-tiny-regular-font-size);
+
+  --leu-t-curve-tiny-regular-line-height:  var(--leu-t-tiny-regular-line-height);
+
+  --leu-t-curve-tiny-regular-spacing:  var(--leu-t-tiny-regular-spacing);
+
+  --leu-t-curve-tiny-regular-font:  var(--leu-t-tiny-regular-font);
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-tiny-regular-font-size:  var(--leu-t-small-regular-font-size);
+    --leu-t-curve-tiny-regular-line-height:  var(--leu-t-small-regular-line-height);
+    --leu-t-curve-tiny-regular-spacing:  var(--leu-t-small-regular-spacing);
+    --leu-t-curve-tiny-regular-font:  var(--leu-t-small-regular-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-tiny-black-font-size:  var(--leu-t-tiny-black-font-size);
+
+  --leu-t-curve-tiny-black-line-height:  var(--leu-t-tiny-black-line-height);
+
+  --leu-t-curve-tiny-black-spacing:  var(--leu-t-tiny-black-spacing);
+
+  --leu-t-curve-tiny-black-font:  var(--leu-t-tiny-black-font);
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-tiny-black-font-size:  var(--leu-t-small-black-font-size);
+    --leu-t-curve-tiny-black-line-height:  var(--leu-t-small-black-line-height);
+    --leu-t-curve-tiny-black-spacing:  var(--leu-t-small-black-spacing);
+    --leu-t-curve-tiny-black-font:  var(--leu-t-small-black-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-small-regular-font-size:  var(--leu-t-small-regular-font-size);
+
+  --leu-t-curve-small-regular-line-height:  var(--leu-t-small-regular-line-height);
+
+  --leu-t-curve-small-regular-spacing:  var(--leu-t-small-regular-spacing);
+
+  --leu-t-curve-small-regular-font:  var(--leu-t-small-regular-font);
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-small-regular-font-size:  var(--leu-t-regular-regular-font-size);
+    --leu-t-curve-small-regular-line-height:  var(--leu-t-regular-regular-line-height);
+    --leu-t-curve-small-regular-spacing:  var(--leu-t-regular-regular-spacing);
+    --leu-t-curve-small-regular-font:  var(--leu-t-regular-regular-font);
+}
+}
+@media (min-width: 1024px) {
+  :root,
+:host {
+    --leu-t-curve-small-regular-font-size:  var(--leu-t-bigger-regular-regular-font-size);
+    --leu-t-curve-small-regular-line-height:  var(--leu-t-bigger-regular-regular-line-height);
+    --leu-t-curve-small-regular-spacing:  var(--leu-t-bigger-regular-regular-spacing);
+    --leu-t-curve-small-regular-font:  var(--leu-t-bigger-regular-regular-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-small-black-font-size:  var(--leu-t-small-black-font-size);
+
+  --leu-t-curve-small-black-line-height:  var(--leu-t-small-black-line-height);
+
+  --leu-t-curve-small-black-spacing:  var(--leu-t-small-black-spacing);
+
+  --leu-t-curve-small-black-font:  var(--leu-t-small-black-font);
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-small-black-font-size:  var(--leu-t-regular-black-font-size);
+    --leu-t-curve-small-black-line-height:  var(--leu-t-regular-black-line-height);
+    --leu-t-curve-small-black-spacing:  var(--leu-t-regular-black-spacing);
+    --leu-t-curve-small-black-font:  var(--leu-t-regular-black-font);
+}
+}
+@media (min-width: 1024px) {
+  :root,
+:host {
+    --leu-t-curve-small-black-font-size:  var(--leu-t-bigger-regular-black-font-size);
+    --leu-t-curve-small-black-line-height:  var(--leu-t-bigger-regular-black-line-height);
+    --leu-t-curve-small-black-spacing:  var(--leu-t-bigger-regular-black-spacing);
+    --leu-t-curve-small-black-font:  var(--leu-t-bigger-regular-black-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-regular-regular-font-size:  var(--leu-t-regular-regular-font-size);
+
+  --leu-t-curve-regular-regular-line-height:  var(--leu-t-regular-regular-line-height);
+
+  --leu-t-curve-regular-regular-spacing:  var(--leu-t-regular-regular-spacing);
+
+  --leu-t-curve-regular-regular-font:  var(--leu-t-regular-regular-font);
+}
+@media (min-width: 400px) {
+  :root,
+:host {
+    --leu-t-curve-regular-regular-font-size:  var(--leu-t-bigger-regular-regular-font-size);
+    --leu-t-curve-regular-regular-line-height:  var(--leu-t-bigger-regular-regular-line-height);
+    --leu-t-curve-regular-regular-spacing:  var(--leu-t-bigger-regular-regular-spacing);
+    --leu-t-curve-regular-regular-font:  var(--leu-t-bigger-regular-regular-font);
+}
+}
+@media (min-width: 1280px) {
+  :root,
+:host {
+    --leu-t-curve-regular-regular-font-size:  var(--leu-t-medium-regular-font-size);
+    --leu-t-curve-regular-regular-line-height:  var(--leu-t-medium-regular-line-height);
+    --leu-t-curve-regular-regular-spacing:  var(--leu-t-medium-regular-spacing);
+    --leu-t-curve-regular-regular-font:  var(--leu-t-medium-regular-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-regular-black-font-size:  var(--leu-t-regular-black-font-size);
+
+  --leu-t-curve-regular-black-line-height:  var(--leu-t-regular-black-line-height);
+
+  --leu-t-curve-regular-black-spacing:  var(--leu-t-regular-black-spacing);
+
+  --leu-t-curve-regular-black-font:  var(--leu-t-regular-black-font);
+}
+@media (min-width: 400px) {
+  :root,
+:host {
+    --leu-t-curve-regular-black-font-size:  var(--leu-t-bigger-regular-black-font-size);
+    --leu-t-curve-regular-black-line-height:  var(--leu-t-bigger-regular-black-line-height);
+    --leu-t-curve-regular-black-spacing:  var(--leu-t-bigger-regular-black-spacing);
+    --leu-t-curve-regular-black-font:  var(--leu-t-bigger-regular-black-font);
+}
+}
+@media (min-width: 1280px) {
+  :root,
+:host {
+    --leu-t-curve-regular-black-font-size:  var(--leu-t-medium-black-font-size);
+    --leu-t-curve-regular-black-line-height:  var(--leu-t-medium-black-line-height);
+    --leu-t-curve-regular-black-spacing:  var(--leu-t-medium-black-spacing);
+    --leu-t-curve-regular-black-font:  var(--leu-t-medium-black-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-bigger-regular-regular-font-size:  var(--leu-t-bigger-regular-regular-font-size);
+
+  --leu-t-curve-bigger-regular-regular-line-height:  var(--leu-t-bigger-regular-regular-line-height);
+
+  --leu-t-curve-bigger-regular-regular-spacing:  var(--leu-t-bigger-regular-regular-spacing);
+
+  --leu-t-curve-bigger-regular-regular-font:  var(--leu-t-bigger-regular-regular-font);
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-bigger-regular-regular-font-size:  var(--leu-t-medium-regular-font-size);
+    --leu-t-curve-bigger-regular-regular-line-height:  var(--leu-t-medium-regular-line-height);
+    --leu-t-curve-bigger-regular-regular-spacing:  var(--leu-t-medium-regular-spacing);
+    --leu-t-curve-bigger-regular-regular-font:  var(--leu-t-medium-regular-font);
+}
+}
+@media (min-width: 1280px) {
+  :root,
+:host {
+    --leu-t-curve-bigger-regular-regular-font-size:  var(--leu-t-large-regular-font-size);
+    --leu-t-curve-bigger-regular-regular-line-height:  var(--leu-t-large-regular-line-height);
+    --leu-t-curve-bigger-regular-regular-spacing:  var(--leu-t-large-regular-spacing);
+    --leu-t-curve-bigger-regular-regular-font:  var(--leu-t-large-regular-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-bigger-regular-black-font-size:  var(--leu-t-bigger-regular-black-font-size);
+
+  --leu-t-curve-bigger-regular-black-line-height:  var(--leu-t-bigger-regular-black-line-height);
+
+  --leu-t-curve-bigger-regular-black-spacing:  var(--leu-t-bigger-regular-black-spacing);
+
+  --leu-t-curve-bigger-regular-black-font:  var(--leu-t-bigger-regular-black-font);
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-bigger-regular-black-font-size:  var(--leu-t-medium-black-font-size);
+    --leu-t-curve-bigger-regular-black-line-height:  var(--leu-t-medium-black-line-height);
+    --leu-t-curve-bigger-regular-black-spacing:  var(--leu-t-medium-black-spacing);
+    --leu-t-curve-bigger-regular-black-font:  var(--leu-t-medium-black-font);
+}
+}
+@media (min-width: 1280px) {
+  :root,
+:host {
+    --leu-t-curve-bigger-regular-black-font-size:  var(--leu-t-large-black-font-size);
+    --leu-t-curve-bigger-regular-black-line-height:  var(--leu-t-large-black-line-height);
+    --leu-t-curve-bigger-regular-black-spacing:  var(--leu-t-large-black-spacing);
+    --leu-t-curve-bigger-regular-black-font:  var(--leu-t-large-black-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-medium-black-font-size:  var(--leu-t-bigger-regular-black-font-size);
+
+  --leu-t-curve-medium-black-line-height:  var(--leu-t-bigger-regular-black-line-height);
+
+  --leu-t-curve-medium-black-spacing:  var(--leu-t-bigger-regular-black-spacing);
+
+  --leu-t-curve-medium-black-font:  var(--leu-t-bigger-regular-black-font);
+}
+@media (min-width: 400px) {
+  :root,
+:host {
+    --leu-t-curve-medium-black-font-size:  var(--leu-t-medium-black-font-size);
+    --leu-t-curve-medium-black-line-height:  var(--leu-t-medium-black-line-height);
+    --leu-t-curve-medium-black-spacing:  var(--leu-t-medium-black-spacing);
+    --leu-t-curve-medium-black-font:  var(--leu-t-medium-black-font);
+}
+}
+@media (min-width: 1024px) {
+  :root,
+:host {
+    --leu-t-curve-medium-black-font-size:  var(--leu-t-large-black-font-size);
+    --leu-t-curve-medium-black-line-height:  var(--leu-t-large-black-line-height);
+    --leu-t-curve-medium-black-spacing:  var(--leu-t-large-black-spacing);
+    --leu-t-curve-medium-black-font:  var(--leu-t-large-black-font);
+}
+}
+@media (min-width: 1280px) {
+  :root,
+:host {
+    --leu-t-curve-medium-black-font-size:  var(--leu-t-small-big-black-font-size);
+    --leu-t-curve-medium-black-line-height:  var(--leu-t-small-big-black-line-height);
+    --leu-t-curve-medium-black-spacing:  var(--leu-t-small-big-black-spacing);
+    --leu-t-curve-medium-black-font:  var(--leu-t-small-big-black-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-large-black-font-size:  var(--leu-t-bigger-regular-black-font-size);
+
+  --leu-t-curve-large-black-line-height:  var(--leu-t-bigger-regular-black-line-height);
+
+  --leu-t-curve-large-black-spacing:  var(--leu-t-bigger-regular-black-spacing);
+
+  --leu-t-curve-large-black-font:  var(--leu-t-bigger-regular-black-font);
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-large-black-font-size:  var(--leu-t-large-black-font-size);
+    --leu-t-curve-large-black-line-height:  var(--leu-t-large-black-line-height);
+    --leu-t-curve-large-black-spacing:  var(--leu-t-large-black-spacing);
+    --leu-t-curve-large-black-font:  var(--leu-t-large-black-font);
+}
+}
+@media (min-width: 1024px) {
+  :root,
+:host {
+    --leu-t-curve-large-black-font-size:  var(--leu-t-small-big-black-font-size);
+    --leu-t-curve-large-black-line-height:  var(--leu-t-small-big-black-line-height);
+    --leu-t-curve-large-black-spacing:  var(--leu-t-small-big-black-spacing);
+    --leu-t-curve-large-black-font:  var(--leu-t-small-big-black-font);
+}
+}
+@media (min-width: 1280px) {
+  :root,
+:host {
+    --leu-t-curve-large-black-font-size:  var(--leu-t-big-black-font-size);
+    --leu-t-curve-large-black-line-height:  var(--leu-t-big-black-line-height);
+    --leu-t-curve-large-black-spacing:  var(--leu-t-big-black-spacing);
+    --leu-t-curve-large-black-font:  var(--leu-t-big-black-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-big-black-font-size:  var(--leu-t-large-black-font-size);
+
+  --leu-t-curve-big-black-line-height:  var(--leu-t-large-black-line-height);
+
+  --leu-t-curve-big-black-spacing:  var(--leu-t-large-black-spacing);
+
+  --leu-t-curve-big-black-font:  var(--leu-t-large-black-font);
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-big-black-font-size:  var(--leu-t-small-big-black-font-size);
+    --leu-t-curve-big-black-line-height:  var(--leu-t-small-big-black-line-height);
+    --leu-t-curve-big-black-spacing:  var(--leu-t-small-big-black-spacing);
+    --leu-t-curve-big-black-font:  var(--leu-t-small-big-black-font);
+}
+}
+@media (min-width: 840px) {
+  :root,
+:host {
+    --leu-t-curve-big-black-font-size:  var(--leu-t-big-black-font-size);
+    --leu-t-curve-big-black-line-height:  var(--leu-t-big-black-line-height);
+    --leu-t-curve-big-black-spacing:  var(--leu-t-big-black-spacing);
+    --leu-t-curve-big-black-font:  var(--leu-t-big-black-font);
+}
+}
+@media (min-width: 1024px) {
+  :root,
+:host {
+    --leu-t-curve-big-black-font-size:  var(--leu-t-bigger-big-black-font-size);
+    --leu-t-curve-big-black-line-height:  var(--leu-t-bigger-big-black-line-height);
+    --leu-t-curve-big-black-spacing:  var(--leu-t-bigger-big-black-spacing);
+    --leu-t-curve-big-black-font:  var(--leu-t-bigger-big-black-font);
+}
+}
+@media (min-width: 1280px) {
+  :root,
+:host {
+    --leu-t-curve-big-black-font-size:  var(--leu-t-small-huge-black-font-size);
+    --leu-t-curve-big-black-line-height:  var(--leu-t-small-huge-black-line-height);
+    --leu-t-curve-big-black-spacing:  var(--leu-t-small-huge-black-spacing);
+    --leu-t-curve-big-black-font:  var(--leu-t-small-huge-black-font);
+}
+}
+:root,
+:host {
+
+  --leu-t-curve-huge-black-font-size:  var(--leu-t-small-big-black-font-size);
+
+  --leu-t-curve-huge-black-line-height:  var(--leu-t-small-big-black-line-height);
+
+  --leu-t-curve-huge-black-spacing:  var(--leu-t-small-big-black-spacing);
+
+  --leu-t-curve-huge-black-font:  var(--leu-t-small-big-black-font);
+}
+@media (min-width: 400px) {
+  :root,
+:host {
+    --leu-t-curve-huge-black-font-size:  var(--leu-t-big-black-font-size);
+    --leu-t-curve-huge-black-line-height:  var(--leu-t-big-black-line-height);
+    --leu-t-curve-huge-black-spacing:  var(--leu-t-big-black-spacing);
+    --leu-t-curve-huge-black-font:  var(--leu-t-big-black-font);
+}
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-t-curve-huge-black-font-size:  var(--leu-t-bigger-big-black-font-size);
+    --leu-t-curve-huge-black-line-height:  var(--leu-t-bigger-big-black-line-height);
+    --leu-t-curve-huge-black-spacing:  var(--leu-t-bigger-big-black-spacing);
+    --leu-t-curve-huge-black-font:  var(--leu-t-bigger-big-black-font);
+}
+}
+@media (min-width: 840px) {
+  :root,
+:host {
+    --leu-t-curve-huge-black-font-size:  var(--leu-t-small-huge-black-font-size);
+    --leu-t-curve-huge-black-line-height:  var(--leu-t-small-huge-black-line-height);
+    --leu-t-curve-huge-black-spacing:  var(--leu-t-small-huge-black-spacing);
+    --leu-t-curve-huge-black-font:  var(--leu-t-small-huge-black-font);
+}
+}
+@media (min-width: 1024px) {
+  :root,
+:host {
+    --leu-t-curve-huge-black-font-size:  var(--leu-t-huge-black-font-size);
+    --leu-t-curve-huge-black-line-height:  var(--leu-t-huge-black-line-height);
+    --leu-t-curve-huge-black-spacing:  var(--leu-t-huge-black-spacing);
+    --leu-t-curve-huge-black-font:  var(--leu-t-huge-black-font);
+}
+}
+@media (min-width: 1280px) {
+  :root,
+:host {
+    --leu-t-curve-huge-black-font-size:  var(--leu-t-giant-black-font-size);
+    --leu-t-curve-huge-black-line-height:  var(--leu-t-giant-black-line-height);
+    --leu-t-curve-huge-black-spacing:  var(--leu-t-giant-black-spacing);
+    --leu-t-curve-huge-black-font:  var(--leu-t-giant-black-font);
+}
+}
+:root,
+:host {
+  --leu-t-font-feature-settings: "ss07", "ss08", "cv03", "cv04", "cv10";
+
+  /*
+   * Grid system
+   *
+   * The design system uses a 6 columns system on smaller screens.
+   * For simplicity we use a 12 column grid for all breakpoints (zh web implementation does the same).
+   *
+   * The goal is to keep the css footprint small
+   * by not generating all classes for every cell width for every breakpoint.
+   * Most components don't need a grid and those who do probably have a very simple configuration.
+   * If we have enough use cases for a more complex grid system we can add it later.
+   */
+  --leu-grid-gap: 1rem;
+  --leu-grid-template-columns: repeat(12, minmax(0, 4.25rem));
+  --leu-grid-max-width: 73rem;
+
+  --leu-grid-columns-full: 1 / -1;
+  --leu-grid-columns-offset: 1 / -1;
+}
+@media (min-width: 600px) {
+  :root,
+:host {
+    --leu-grid-columns-offset: 3 / -1;
+}
+  }
+@media (min-width: 840px) {
+  :root,
+:host {
+    --leu-grid-gap: 2rem;
+}
+  }

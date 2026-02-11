@@ -1,0 +1,20 @@
+# the only reason this is needed currently is the bug here: https://github.com/rstudio/plumber/issues/836
+# with an open PR here: https://github.com/rstudio/plumber/pull/977
+:8000 {
+  # strips 
+  handle /api/__docs__/* {
+    uri strip_prefix /api
+    reverse_proxy app:8000
+  }
+  handle /api/openapi.json {
+    uri strip_prefix /api
+    reverse_proxy app:8000
+  }
+  handle /api/* {
+    reverse_proxy /api/* app:8000
+  }
+  handle {
+    root * /var/www
+    file_server browse
+  }
+}
