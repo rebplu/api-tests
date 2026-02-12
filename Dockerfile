@@ -10,8 +10,21 @@ FROM rstudio/plumber AS app
 #     libxml2-dev \
 #     && rm -rf /var/lib/apt/lists/*
 
-# R-Pakete installieren
-RUN R -e "install.packages(c('jsonlite', 'dplyr', 'readr', 'stringr','fuzzyjoin'), repos='https://cloud.r-project.org')"
+# System-Dependencies installieren
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    g++ \
+    make \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libxml2-dev \
+    libgit2-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# R-Pakete
+RUN R -e "install.packages(c('jsonlite','dplyr','readr','stringr'), repos='https://cloud.r-project.org'); \
+          if(!require(remotes)) install.packages('remotes', repos='https://cloud.r-project.org'); \
+          remotes::install_github('dgrtwo/fuzzyjoin')"
 
 # Arbeitsverzeichnis setzen
 WORKDIR /app
@@ -33,7 +46,7 @@ EXPOSE 8000
 # CMD ["R", "-e", "api <- plumber::pr();api <- plumber::Plumber$new('plumber.R');root$mount('/api', api);api$setDocs(TRUE);root$run(host='0.0.0.0', port=8000)"]
 
 # ENV PLUMBER_APIPATH='/api' PLUMBER_APIHOST='0.0.0.0'
-ENV PLUMBER_APIHOST='0.0.0.0'
+ENV PLUMBER_APIHOST='0.0.0.0' PLUMBER_APIPATH='/api'
 CMD ["/app/plumber.R"]
 
 ###### REVERSE PROXY/static pages

@@ -1,18 +1,34 @@
 # the only reason this is needed currently is the bug here: https://github.com/rstudio/plumber/issues/836
 # with an open PR here: https://github.com/rstudio/plumber/pull/977
+
 :8000 {
-  # strips 
+   #  Matcher that catches any request whose path ends with “/”
+   @endslash {
+       #   ^(.+?)\/$   → capture everything *up to* the last slash
+       path_regexp endslash ^(.+?)\/$
+   }
+
   handle /api/__docs__/* {
     uri strip_prefix /api
     reverse_proxy app:8000
   }
+
   handle /api/openapi.json {
     uri strip_prefix /api
     reverse_proxy app:8000
   }
+
+  # this is needed, else /api will not be resolved, and /api* resolves to too many routes, which we don't want
+  handle /api {
+    reverse_proxy /api app:8000
+  }
+
   handle /api/* {
+    # Redirect to the captured part (no trailing slash) + original query string
+    redir @endslash {re.1}?{query} 307
     reverse_proxy /api/* app:8000
   }
+
   handle {
     root * /var/www
     file_server browse
