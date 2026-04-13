@@ -30,12 +30,26 @@ gemeindenhist <<- read_csv("daten/GEMEINDEN_HIST.csv") %>%
 
 # --- Helper function ----------------------------------------------------------
 
+geo_abkuerzungen <- c(
+  "\\s*a\\.\\s*a\\."        = " am albis",
+  "\\s*a\\.\\s*d\\.\\s*t\\." = " an der thur",
+  "\\s*a\\.\\s*d\\.\\s*l\\." = " an der limmat",
+  "\\s*a\\.\\s*s\\."        = " am see",
+  # Varianten ohne abschliessenden Punkt
+  "\\s*a\\.\\s*a\\b"        = " am albis",
+  "\\s*a\\.\\s*d\\.\\s*t\\b" = " an der thur",
+  "\\s*a\\.\\s*d\\.\\s*l\\b" = " an der limmat",
+  "\\s*a\\.\\s*s\\b"        = " am see"
+)
+
 # Funktion zur Normalisierung
 normalize <- function(x) {
   # Alle Buchstaben zu Klein-Buchstaben umwandeln
   str_to_lower(x) %>%
     # Sämtliche Umlaute und das scharfe S ersetzen
-    str_replace_all(c("ä"="ae","ö"="oe","ü"="ue","ß"="ss"))
+    str_replace_all(c("ä"="ae","ö"="oe","ü"="ue","ß"="ss")) %>%
+    # Abkürzungen auflösen (nach Umlaut-Ersetzung, da ä->ae etc.)
+    str_replace_all(geo_abkuerzungen)
 }
 
 # Funktion zur Namenssuche
@@ -50,7 +64,7 @@ namens_suche <- function(input = NULL, dictionary = NULL) {
     mutate(name_clean = normalize(.[[grep("_name$", 
                                           names(.), 
                                           value = TRUE
-                                          )[1]]]))
+    )[1]]]))
   
   # Dreistuffige Suche nach Gemeinde Namen
   # 1.) Exakter match
@@ -75,7 +89,7 @@ namens_suche <- function(input = NULL, dictionary = NULL) {
       filter(!is.na(.[[grep("_name$", 
                             names(.), 
                             value = TRUE
-                           )[1]]])) 
+      )[1]]])) 
   }
   
   # 4.) Erfolglose Suche
@@ -131,12 +145,12 @@ function(gemeinde_code) {
 
 #* Suche nach Gemeinde anhand des Gemeindenamens
 #*
-#* @get /api/gemeinden/gemeindename
-#* @param gemeindename Name der Gemeinde
+#* @get /api/gemeinden/gemeinde_name
+#* @param gemeinde_name Name der Gemeinde
 #* @responseContentType application/json
-function(gemeindename) {
+function(gemeinde_name) {
   # Suche starten
-  vorschlaege <- namens_suche(input = gemeindename, dictionary = gemeinden)
+  vorschlaege <- namens_suche(input = gemeinde_name, dictionary = gemeinden)
   
   # Fall wenn nichts gefunden wurde abhandeln
   if (!is.data.frame(vorschlaege)) {
@@ -171,7 +185,7 @@ function(gemeindename) {
   })
   
   list(
-    name = unbox(gemeindename),
+    name = unbox(gemeinde_name),
     treffer = treffer
   )
 }
@@ -272,12 +286,12 @@ function(bezirk_code) {
 
 #* Suche nach Bezirk anhand des Bezirknamens
 #*
-#* @get /api/bezirke/bezirkname
-#* @param bezirkname Name des Bezirkes 
+#* @get /api/bezirke/bezirk_name
+#* @param bezirk_name Name des Bezirkes 
 #* @responseContentType application/json
-function(bezirkname) {
+function(bezirk_name) {
   # Suche starten
-  vorschlaege <- namens_suche(input = bezirkname, dictionary = bezirke)
+  vorschlaege <- namens_suche(input = bezirk_name, dictionary = bezirke)
   
   # Fall wenn nichts gefunden wurde abhandeln
   if (!is.data.frame(vorschlaege)) {
@@ -302,7 +316,7 @@ function(bezirkname) {
   })
   
   list(
-    name = unbox(bezirkname),
+    name = unbox(bezirk_name),
     treffer = treffer
   )
 }
@@ -349,12 +363,12 @@ function(region_code) {
 
 #* Suche nach Raumplanungsregion anhand des Raumplanungsregionnamens
 #*
-#* @get /api/raumplanungsregionen/raumplanungsregionname
-#* @param raumplanungsregionname Name der Raumplanungsregion
+#* @get /api/raumplanungsregionen/raumplanungsregion_name
+#* @param raumplanungsregion_name Name der Raumplanungsregion
 #* @responseContentType application/json
-function(raumplanungsregionname) {
+function(raumplanungsregion_name) {
   # Suche starten
-  vorschlaege <- namens_suche(input = raumplanungsregionname, 
+  vorschlaege <- namens_suche(input = raumplanungsregion_name, 
                               dictionary = raumplanungsregionen)
   
   # Fall wenn nichts gefunden wurde abhandeln
@@ -381,7 +395,7 @@ function(raumplanungsregionname) {
   })
   
   list(
-    name = unbox(raumplanungsregionname),
+    name = unbox(raumplanungsregion_name),
     treffer = treffer
   )
 }
@@ -410,6 +424,44 @@ function() {
   list(gemeindenhist = gemeindenhist)
 }
 
+#* Gibt immer den aktuellen Code (bzw. Bfsnr) einer Gemeinde zurück
+#*
+#* @get /api/gemeindefusionen/<gemeinde_code:int>
+#* @param gemeinde_code Code
+#* @responseContentType application/json
+function(gemeinde_code) {
+  gemeinde_code <- as.numeric(gemeinde_code)
+  
+  if (is.null(gemeindemutationen) || is.null(gemeinden)) {
+    return(list(error = unbox("Daten nicht verfügbar")))
+  }
+  
+  # 1.) In Mutationstabelle suchen
+  daten <- gemeindemutationen %>%
+    filter(gemeinde_code_alt == !!gemeinde_code) %>%
+    arrange(mutationsdatum)
+  
+  if (nrow(daten) > 0) {
+    aktuell <- daten %>% slice_tail(n = 1)
+    return(list(
+      gemeinde_code = unbox(aktuell$gemeinde_code_neu),
+      gemeinde_name = unbox(aktuell$gemeinde_name_neu)
+    ))
+  }
+  
+  aktuell <- gemeinden %>%
+    filter(gemeinde_code == !!gemeinde_code)
+  
+  if (nrow(aktuell) > 0) {
+    return(list(
+      gemeinde_code = unbox(aktuell$gemeinde_code),
+      gemeinde_name = unbox(aktuell$gemeinde_name)
+    ))
+  }
+  
+  return(list(error = unbox("Keine Gemeinde gefunden")))
+}
+
 #* @get /api/gemeindenhist/<jahr:int>
 #* @param jahr Jahreszahl
 #* @responseContentType application/json
@@ -426,7 +478,7 @@ function(jahr) {
     return(list(error = unbox(sprintf("Keine Gemeinden für das Jahr %s gefunden",
                                       jahr))))
   }
-    
+  
   list(jahr = unbox(jahr), gemeinden = daten)
 }
 
@@ -446,8 +498,8 @@ function(jahr, gemeinde_code) {
   
   if (nrow(daten) == 0) {
     return(list(error = unbox(sprintf("Keine Gemeinde %s im Jahr %s gefunden", 
-                                gemeinde_code, 
-                                jahr))))
+                                      gemeinde_code, 
+                                      jahr))))
   }
   
   list(gemeinde_code = unbox(gemeinde_code),
