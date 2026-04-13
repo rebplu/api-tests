@@ -12,15 +12,75 @@
   </script>
 </head>
 <body>
-    <header>
-      <div class="title-group">
-        <img src="logo.svg" alt="Logo Kanton Zürich" />
-        <div>
+
+  <header>
+    <div class="title-group">
+      <div class="title-container">
+        <img src="logo_negativ.svg" alt="Logo Kanton Zürich" />
+        <div class="title-text">
           <h1>API Gebietsstammdaten Kanton Zürich</h1>
+          <p class="lead-text">
+            Diese API ermöglicht den einfachen Zugriff auf aktuelle und qualitäts&shy;gesicherte Daten zu Gemeinden, Bezirken und Raumplanungsregionen des Kantons Zürich.
+          </p>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
+
   <div class="container">
+
+    <!-- Überlappende Hero-Card -->
+    <div class="hero-card">
+
+      <div class="hero-card-mockup">
+        <div class="swagger-mockup">
+          <div class="swagger-body">
+            <div class="swagger-endpoint">
+              <span class="swagger-method get">GET</span>
+              <span class="swagger-path">/api/gemeinden</span>
+              <span class="swagger-summary">Alle Gemeinden abrufen</span>
+            </div>
+            <div class="swagger-endpoint">
+              <span class="swagger-method get">GET</span>
+              <span class="swagger-path">/api/gemeinden/{gemeinde_code}</span>
+              <span class="swagger-summary">Gemeinde nach Gemeindecode (Bfsnr)</span>
+            </div>
+            <div class="swagger-endpoint">
+              <span class="swagger-method get">GET</span>
+              <span class="swagger-path">/api/gemeinden/gemeindename</span>
+              <span class="swagger-summary">Suche nach Gemeinden anhand des Gemeindenamens</span>
+            </div>
+            <div class="swagger-endpoint">
+              <span class="swagger-method get">GET</span>
+              <span class="swagger-path">/api/bezirke</span>
+              <span class="swagger-summary">Alle Bezirke abrufen</span>
+            </div>
+            <div class="swagger-endpoint">
+              <span class="swagger-method get">GET</span>
+              <span class="swagger-path">/api/raummplanungsregionen</span>
+              <span class="swagger-summary">Alle Raumplanungsregionen abrufen</span>
+            </div>
+            <div class="swagger-endpoint">
+              <span class="swagger-method get">GET</span>
+              <span class="swagger-path">/api/gemeindemutationen</span>
+              <span class="swagger-summary">Gemeindemutationen seit 1990 abrufen</span>
+              
+            </div>
+            <div class="swagger-more">...</div>
+          </div>
+        </div>
+      </div>
+            <div class="hero-card-content">
+        <a class="highlight-box"
+           href="https://gebietsstammdaten.statistik.zh.ch/api/__docs__/#/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Zur API-Dokumentation →
+        </a>
+      </div>
+    </div>
+
+    <!-- Beta-Warnung -->
     <leu-message class="message" style="--leu-message-accent-color: unset;" type="error" size="large">
       <strong>Beta-Version</strong><br>
       Diese API befindet sich derzeit in der Test- und Weiterentwicklungsphase.
@@ -28,35 +88,12 @@
     </leu-message>
 
     <main>
-      <section id="api-info">
-        <p>
-          Die API zu den Gebietsstammdaten ermöglicht den einfachen Zugriff auf aktuelle und qualitätsgesicherte Daten
-          zu Gemeinden, Bezirken und Raumplanungsregionen des Kantons Zürich.
-          Sie liefert Daten im JSON-Format und unterstützt Abfragen nach Gebietstypen und Zeitständen.
-        </p>
-        <p>
-          Basis-Endpunkt:
-          <code>https://gebietsstammdaten.statistik.zh.ch/api</code>
-        </p>
-<ul class="link-list">
-  <li>
-    <a class="highlight-box"
-       href="https://gebietsstammdaten.statistik.zh.ch/api/__docs__/#/"
-       target="_blank"
-       rel="noopener noreferrer">
-      🔗 zur API-Dokumentation
-    </a>
-  </li>
-</ul>
-      </section>
-
-
       <section id="roadmap">
         <h2>Geplante Weiterentwicklungen</h2>
         <h3>Erweiterung der Daten</h3>
         <p>
           Die Gebietsstammdaten und somit die API-Requests werden schrittweise um weitere Attribute
-          (wie beispielsweise Koordinaten) und Gebietstypen (wie beispielsweise Schulgemeinden) ergänzt.
+          und Gebietstypen (wie beispielsweise Schulgemeinden) ergänzt.
         </p>
         <h3>Reconcile Service für OpenRefine</h3>
         <p>
@@ -65,35 +102,91 @@
           ohne Programmierkenntnisse möglich.
         </p>
       </section>
-      <section id="contact">
-        <ul class="link-list">
-          <li>
-            <a href="https://github.com/statistikZH/gebietsstammdaten_zh/tree/main?tab=readme-ov-file#kontakt"
-              target="_blank" rel="noopener noreferrer">
-              Fragen oder Feedback zur Weiterentwicklung der API?</a>
-          </li>
-        </ul>
-      </section>
+
       <section id="links">
         <h2>Weiterführende Links</h2>
         <ul class="link-list">
           <li>
-            🔗 <a href="https://github.com/statistikZH/gebietsstammdaten_zh/blob/main/api/README.md" target="_blank"
-              rel="noopener noreferrer">
+            <a class="arrow-link" href="https://github.com/statistikZH/gebietsstammdaten_zh"
+              target="_blank" rel="noopener noreferrer">
+              Github Repository</a>
+          </li>
+          <li>
+            <a class="arrow-link" href="https://github.com/statistikZH/gebietsstammdaten_zh/tree/main/code_vorlagen/api"
+              target="_blank" rel="noopener noreferrer">
               Beispielabfragen zur API in Curl und R</a>
           </li>
           <li>
-            🔗 <a
-              href="https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich"
+            <a class="arrow-link" href="https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich"
               target="_blank" rel="noopener noreferrer">
               Gebietsstammdaten im Datenkatalog</a>
           </li>
         </ul>
       </section>
     </main>
-    <footer>
-      © 2025 Statistisches Amt des Kantons Zürich
-    </footer>
   </div>
+
+  <footer>
+    <div class="footer-container">
+
+      <h2>Kontakt</h2>
+
+      <h3>
+        <a href="https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt/data-management.html">
+          Data Management
+        </a>
+      </h3>
+
+      <div class="footer-grid">
+
+        <!-- Adresse -->
+        <div class="footer-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="address">
+              Schöntalstrasse 5<br>8090 Zürich
+            </p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=47.3697559,8.5280481">Route (Google)</a>
+          </div>
+        </div>
+
+        <!-- Telefon -->
+        <div class="footer-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24">
+              <path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.6.6 4 .6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C11.3 22 2 12.7 2 1c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.2 2.8.6 4 .1.4 0 .8-.3 1.1L6.6 10.8z"/>
+            </svg>
+          </div>
+          <div>
+            <p>
+              <a href="tel:+41432597500"><strong>+41 43 259 75 00</strong></a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Mail -->
+        <div class="footer-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 4h20v16H2V4zm10 9L20 6H4l8 7zm0 2l-8-7v10h16V8l-8 7z"/>
+            </svg>
+          </div>
+          <div>
+            <p>
+              <a href="mailto:dm@statistik.ji.zh.ch">
+                <strong>dm@statistik.ji.zh.ch</strong>
+              </a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
