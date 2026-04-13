@@ -250,4 +250,18 @@ api$setApiSpec(function(spec) {
   spec
 })
 
+local({
+  original_spec <- swagger::swagger_spec
+  
+  assignInNamespace("swagger_spec", function(api_path = "\"http://petstore.swagger.io/v2/swagger.json\"", version = "3") {
+    index_txt <- original_spec(api_path = api_path, version = version)
+    index_txt <- sub(
+      'layout: "StandaloneLayout"',
+      'defaultModelsExpandDepth: 0,\n        layout: "StandaloneLayout"',
+      index_txt
+    )
+    index_txt
+  }, ns = "swagger")
+})
+
 api$run(host = "127.0.0.1", port = 8000)
