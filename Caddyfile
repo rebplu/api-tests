@@ -20,7 +20,10 @@
 
   # this is needed, else /api will not be resolved, and /api* resolves to too many routes, which we don't want
   handle /api {
-    reverse_proxy /api app:8000
+    reverse_proxy /api app:8000 {
+            header_up X-Forwarded-Host {host}
+            header_up X-Forwarded-Proto {scheme}
+        }
   }
 
   handle /api/* {

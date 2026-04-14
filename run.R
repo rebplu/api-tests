@@ -343,4 +343,4 @@ local({
   }, ns = "swagger")
 })
 
-api$run(host = "127.0.0.1", port = 8000)
+api$run(host = "0.0.0.0", port = 8000)

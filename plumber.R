@@ -7,6 +7,18 @@ library(readr)
 library(stringr)
 library(fuzzyjoin)
 
+#* @filter cors
+function(req, res) {
+  res$setHeader("Access-Control-Allow-Origin", "*")
+  res$setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+  res$setHeader("Access-Control-Allow-Headers", "Content-Type")
+  if (req$REQUEST_METHOD == "OPTIONS") {
+    res$status <- 200
+    return(res)
+  }
+  plumber::forward()
+}
+
 # --- Daten laden --------------------------------------------------------------
 
 gemeinden <<- read_csv("daten/GEMEINDE_ZH.csv") %>%
@@ -555,8 +567,15 @@ function(req, queries = NULL) {
 
   # 2. Queries verarbeiten
   q_list <- jsonlite::fromJSON(queries, simplifyVector = FALSE)
-  host <- if (!is.null(req$HTTP_HOST)) req$HTTP_HOST else "localhost:8000"
-  base_url <- paste0("http://", host)
+  host <- if (!is.null(req$HTTP_X_FORWARDED_HOST)) {
+    req$HTTP_X_FORWARDED_HOST
+  } else if (!is.null(req$HTTP_HOST)) {
+    req$HTTP_HOST
+  } else {
+    "gebietsstammdaten.statistik.zh.ch"
+  }
+  proto <- if (!is.null(req$HTTP_X_FORWARDED_PROTO)) req$HTTP_X_FORWARDED_PROTO else "https"
+  base_url <- paste0(proto, "://", host)
 
   results <- lapply(names(q_list), function(q_id) {
     q <- q_list[[q_id]]

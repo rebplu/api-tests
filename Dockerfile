@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # R-Pakete
-RUN R -e "install.packages(c('jsonlite','dplyr','readr','stringr'), repos='https://cloud.r-project.org'); \
+RUN R -e "install.packages(c('jsonlite','dplyr','readr','stringr','swagger'), repos='https://cloud.r-project.org'); \
           if(!require(remotes)) install.packages('remotes', repos='https://cloud.r-project.org'); \
           remotes::install_github('dgrtwo/fuzzyjoin')"
 
@@ -46,8 +46,8 @@ EXPOSE 8000
 # CMD ["R", "-e", "api <- plumber::pr();api <- plumber::Plumber$new('plumber.R');root$mount('/api', api);api$setDocs(TRUE);root$run(host='0.0.0.0', port=8000)"]
 
 # ENV PLUMBER_APIPATH='/api' PLUMBER_APIHOST='0.0.0.0'
-ENV PLUMBER_APIHOST='0.0.0.0' PLUMBER_APIPATH='/api'
-CMD ["/app/plumber.R"]
+ENV PLUMBER_APIHOST='0.0.0.0'
+CMD ["Rscript", "/app/run.R"]
 
 ###### REVERSE PROXY/static pages
 FROM caddy:latest AS reverse_proxy
