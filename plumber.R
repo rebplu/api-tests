@@ -136,6 +136,55 @@ function() {}
 function() {}
 
 # ==============================================================================
+#  G E B I E T E
+# ==============================================================================
+
+#* @get /api/gebiete
+#* @responseContentType application/json
+function() {
+  if (is.null(gemeinden)) {
+    return(list(error = unbox("Daten nicht verfügbar")))
+  }
+  gebiete <- bind_rows(
+    tibble(gebietstyp_code = 1, gebiet_code = 1, gebiet_name = "Zürich"),
+
+    gemeinden %>%
+      rename(gebiet_code = gemeinde_code,
+             gebiet_name = gemeinde_name),
+
+    bezirke %>%
+      rename(gebiet_code = bezirk_code,
+             gebiet_name = bezirk_name),
+
+    raumplanungsregionen %>%
+      rename(gebiet_code = raumplanungsregion_code,
+             gebiet_name = raumplanungsregion_name)
+  ) %>% arrange(gebietstyp_code, gebiet_code)
+
+  list(gebiete = gebiete)
+}
+
+#* @get /api/gebietstypen
+#* @responseContentType application/json
+function() {
+  if (is.null(gemeinden)) {
+    return(list(error = unbox("Daten nicht verfügbar")))
+  }
+  gebietstypen <- bind_rows(
+    tibble(gebietstyp_code = 1, gebietstyp_name =  "Kanton"),
+
+    tibble(gebietstyp_code = 2, gebietstyp_name =  "Bezirk"),
+
+    tibble(gebietstyp_code = 3, gebietstyp_name =  "Gemeinde"),
+
+    tibble(gebietstyp_code = 6, gebietstyp_name =  "Raumplanungsregion")
+
+  ) %>% arrange(gebietstyp_code)
+
+  list(gebietstypen  = gebietstypen)
+}
+
+# ==============================================================================
 #  G E M E I N D E N
 # ==============================================================================
 
