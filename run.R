@@ -18,6 +18,8 @@ df_to_properties <- function(df) {
 }
 
 # --- Basis-Properties aus den Dataframes ---
+p_gebiet             <- list(gebietstyp_code = list(type = "number"),gebiet_code = list(type = "number"),gebiet_name = list(type = "string"))
+p_gebietstyp         <- list(gebietstyp_code = list(type = "number"),gebietstyp_name = list(type = "string"))
 p_gemeinde           <- df_to_properties(gemeinden)
 p_bezirk             <- df_to_properties(bezirke)
 p_region             <- df_to_properties(raumplanungsregionen)
@@ -30,6 +32,22 @@ p_region_kurz        <- df_to_properties(gemeindezuweisungen %>% select(raumplan
 
 # --- Schemas ---
 schemas <- list(
+
+  # /api/gebiete → { gebiete: [...] }
+  gebiete = list(
+    type = "object",
+    properties = list(
+      gebiete = list(type = "array", items = list(type = "object", properties = p_gebiet))
+    )
+  ),
+
+  # /api/gebietstypen → { gebietstypen: [...] }
+  gebietstypen = list(
+    type = "object",
+    properties = list(
+      gebietstypen = list(type = "array", items = list(type = "object", properties = p_gebietstyp))
+    )
+  ),
 
   # /api/gemeinden → { gemeinden: [...] }
   gemeinden = list(
@@ -169,7 +187,7 @@ schemas <- list(
   `gemeindefusionen-gemeinde_code` = list(
     type = "object",
     properties = list(
-      gemeinde_code = list(type = "integer"),
+      gemeinde_code = list(type = "number"),
       gemeinde_name = list(type = "string")
     )
   ),
@@ -186,7 +204,7 @@ schemas <- list(
   `gemeindenhist-jahr` = list(
     type = "object",
     properties = list(
-      jahr      = list(type = "integer"),
+      jahr      = list(type = "number"),
       gemeinden = list(type = "array", items = list(type = "object", properties = p_hist))
     )
   ),
@@ -195,8 +213,8 @@ schemas <- list(
   `gemeindenhist-jahr-gemeinde_code` = list(
     type = "object",
     properties = list(
-      gemeinde_code = list(type = "integer"),
-      jahr          = list(type = "integer"),
+      gemeinde_code = list(type = "number"),
+      jahr          = list(type = "number"),
       daten         = list(type = "object", properties = p_hist)
     )
   ),
@@ -263,6 +281,8 @@ schemas$reconcile_results <- list(
 
 # --- Refs pro Endpoint ---
 refs <- list(
+  "/api/gebiete"                                     = "gebiete",
+  "/api/gebietstypen"                                = "gebietstypen",
   "/api/gemeinden"                                   = "gemeinden",
   "/api/gemeinden/{gemeinde_code}"                   = "gemeinden-gemeinde_code",
   "/api/gemeinden/gemeinde_name"                      = "gemeinden-gemeinde_name",
