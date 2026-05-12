@@ -1,0 +1,11 @@
+FROM eclipse-temurin:21-jre
+
+ARG VERSION=3.9.5
+RUN apt-get update && apt-get install -y wget && \
+    wget -q https://github.com/OpenRefine/OpenRefine/releases/download/${VERSION}/openrefine-linux-${VERSION}.tar.gz && \
+    tar -xzf openrefine-linux-${VERSION}.tar.gz && \
+    mv openrefine-${VERSION} /opt/openrefine && \
+    rm openrefine-linux-${VERSION}.tar.gz
+
+EXPOSE 3333
+CMD ["/opt/openrefine/refine", "-i", "0.0.0.0", "-p", "3333"]
