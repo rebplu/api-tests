@@ -35,5 +35,6 @@
   handle {
     root * /var/www
     file_server browse
+    try_files {path} {path}.html
   }
 }
