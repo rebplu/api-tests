@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # R-Pakete
-RUN R -e "install.packages(c('jsonlite','dplyr','readr','stringr','swagger'), repos='https://cloud.r-project.org'); \
+RUN R -e "install.packages(c('jsonlite','dplyr','readr','stringr','swagger','httr'), repos='https://cloud.r-project.org'); \
           if(!require(remotes)) install.packages('remotes', repos='https://cloud.r-project.org'); \
           remotes::install_github('dgrtwo/fuzzyjoin')"
 
