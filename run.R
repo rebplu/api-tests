@@ -292,7 +292,7 @@ refs <- list(
   "/api/bezirke/{bezirk_code}"                       = "bezirke-bezirk_code",
   "/api/bezirke/bezirk_name"                         = "bezirke-bezirk_name",
   "/api/raumplanungsregionen"                        = "raumplanungsregionen",
-  "/api/raumplanungsregionen/{region_code}"          = "raumplanungsregionen-region_code",
+  "/api/raumplanungsregionen/{raumplanungsregion_code}"          = "raumplanungsregionen-raumplanungsregion_code",
   "/api/raumplanungsregionen/raumplanungsregion_name"= "raumplanungsregionen-raumplanungsregion_name",
   "/api/gemeindemutationen"                          = "gemeindemutationen",
   "/api/gemeindefusionen/{gemeinde_code}"            = "gemeindefusionen-gemeinde_code",
