@@ -11,10 +11,3 @@ services:
       target: reverse_proxy
     ports:
       - "8000:8000"
-
-  openrefine:
-    build:
-      context: .
-      dockerfile: Dockerfile.openrefine
-    ports:
-      - "3333:3333"
