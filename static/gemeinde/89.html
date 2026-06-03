@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niederglatt</title>
+<script>
+  var _paq = window._paq = window._paq || [];
+  _paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+  var u='//sa.abx-net.net/';
+  _paq.push(['setTrackerUrl', u+'matomo.php']);
+  _paq.push(['setSiteId', '19']);
+  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+  g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+})();</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #1a2740;
+}
+
+/* ── Header ── */
+.header {
+    background-color: #0076bd;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.header img {
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+.header-text h1 { margin: 0; font-size: 22px; }
+.header-text .sub { font-size: 13px; opacity: 0.75; margin-top: 3px; }
+
+/* ── Layout ── */
+.content { padding: 32px 40px; max-width: 960px; }
+
+/* ── Meta-Kacheln ── */
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.meta-tile {
+    background: white;
+    border-radius: 10px;
+    border: 0.5px solid #d8dce4;
+    padding: 14px 16px;
+}
+.meta-tile .tile-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #999;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.meta-tile .tile-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a2740;
+    line-height: 1.1;
+}
+.meta-tile .tile-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0076bd;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.2;
+}
+.meta-tile .tile-link:hover { text-decoration: underline; }
+.meta-tile .tile-sub {
+    font-size: 11px;
+    color: #bbb;
+    margin-top: 3px;
+}
+
+/* ── Karte ── */
+.map-card {
+    background: white;
+    border-radius: 10px;
+    border: 0.5px solid #d8dce4;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+}
+.map-card iframe {
+    width: 100%;
+    height: 420px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 4px;
+}
+
+/* ── Zwei-Spalten-Zeile ── */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* ── Karte (allgemein) ── */
+.card {
+    background: white;
+    border-radius: 10px;
+    border: 0.5px solid #d8dce4;
+    padding: 20px 22px;
+}
+.card-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #999;
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.card-title::before {
+    display: none;
+}
+
+/* ── Haupt-Button ── */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0076bd;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.btn-primary:hover { background-color: #005f99; }
+
+/* ── Geo-Linkliste ── */
+.geo-list { display: flex; flex-direction: column; gap: 8px; }
+.geo-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    border-radius: 7px;
+    border: 0.5px solid #dce1ea;
+    background: #f8f9fb;
+    text-decoration: none;
+    font-size: 13px;
+    color: #1a2740;
+}
+.geo-link:hover { background: #eef4fb; color: #0076bd; }
+.geo-link .geo-arrow { font-size: 14px; color: #0076bd; opacity: 0.7; }
+.geo-link .geo-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background: #e8f3fb;
+    color: #0076bd;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+/* ── Datenquellen ── */
+.sources-card {
+    background: white;
+    border-radius: 10px;
+    border: 0.5px solid #d8dce4;
+    padding: 20px 22px;
+    margin-bottom: 24px;
+}
+.sources-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+.source-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 11px 0;
+    border-bottom: 0.5px solid #f0f2f5;
+}
+.sources-grid .source-item:nth-last-child(-n+2) { border-bottom: none; }
+.source-item:nth-child(odd)  { padding-right: 22px; border-right: 0.5px solid #f0f2f5; }
+.source-item:nth-child(even) { padding-left: 22px; }
+.source-icon {
+    width: 30px; height: 30px;
+    border-radius: 7px;
+    background: #e8f3fb;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+}
+.source-text .src-label {
+    font-size: 12px; font-weight: 600; color: #555; margin-bottom: 3px;
+}
+.source-text a { font-size: 12px; color: #0076bd; text-decoration: none; }
+.source-text a:hover { text-decoration: underline; }
+
+/* ── Footer ── */
+footer { font-size: 11px; color: #bbb; padding-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="../logo_negativ.svg" alt="Zuerich Leu">
+  <div class="header-text">
+    <h1>Niederglatt</h1>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- Merkmale -->
+  <div class="meta-grid">
+    <div class="meta-tile">
+      <div class="tile-label">Gemeinde-Code (Bfsnr)</div>
+      <div class="tile-value">89</div>
+    </div>
+    <div class="meta-tile">
+      <div class="tile-label">Bezirk</div>
+      <a class="tile-link" href="../bezirk/104.html" target="_blank" rel="noopener noreferrer">Dielsdorf</a>
+      <div class="tile-sub">Code: 104</div>
+    </div>
+    <div class="meta-tile">
+      <div class="tile-label">Raumplanungsregion</div>
+      <a class="tile-link" href="../raumplanungsregion/111.html" target="_blank" rel="noopener noreferrer">Zürcher Unterland</a>
+      <div class="tile-sub">Code: 111</div>
+    </div>
+  </div>
+
+  <!-- Karte -->
+  <div class="map-card">
+    <div class="card-title">Lage</div>
+    <iframe src="https://map.geo.admin.ch/embed.html?ch.swisstopo.swissboundaries3d-gemeinde-flaeche.fill=89" title="Karte Niederglatt" loading="lazy"></iframe>
+  </div>
+
+  <!-- Statistik + Geodaten -->
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Statistikportal Zürcher Gemeinden in Zahlen</div>
+      <a class="btn-primary" href="https://zgz.statistik.zh.ch/?gtc=3&gc=89" target="_blank" rel="noopener noreferrer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Niederglatt in Zahlen</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Geodaten</div>
+      <div class="geo-list">
+        <a class="geo-link" href="https://geo.ktzh.ch/maps?searchIndex=gemeindegrenzen&searchTerm=89" target="_blank" rel="noopener noreferrer">
+          <span>Geoportal Kanton Z&uuml;rich</span>
+          <span class="geo-arrow">&#8599;</span>
+        </a>
+        <a class="geo-link" href="https://maps.zh.ch/wfs/OGDZHWFS?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ms:ogd-0095_arv_basis_up_gemeinden_f&outputFormat=geojson&FILTER=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Ebfs%3C/PropertyName%3E%3CLiteral%3E89%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E" target="_blank" rel="noopener noreferrer">
+          <span>GeoJSON (WFS)</span>
+          <span class="geo-badge">&#8595; JSON</span>
+        </a>
+        <a class="geo-link" href="https://maps.zh.ch/wfs/OGDZHWFS?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ms:ogd-0095_arv_basis_up_gemeinden_f&outputFormat=gml3&FILTER=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Ebfs%3C/PropertyName%3E%3CLiteral%3E89%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E" target="_blank" rel="noopener noreferrer">
+          <span>GML</span>
+          <span class="geo-badge">&#8595; XML</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Datenquellen -->
+  <div class="sources-card">
+    <div class="card-title">Datenquellen &amp; Links</div>
+    <div class="sources-grid">
+
+      <div class="source-item">
+        <div class="source-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0076bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="source-text">
+          <div class="src-label">Gemeinden &amp; Bezirke</div>
+          <a href="https://www.bfs.admin.ch/bfs/de/home/grundlagen/agvch.html"
+             target="_blank" rel="noopener noreferrer">BFS &ndash; Amtliches Gemeindenverzeichnis</a>
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0076bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
+        <div class="source-text">
+          <div class="src-label">Raumplanungsregionen</div>
+          <a href="https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/raeumliche-analysen/raeumliche-gliederungen/regionalpolitische-gliederungen.html"
+             target="_blank" rel="noopener noreferrer">BFS Raumplanungsregionen</a>
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0076bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="source-text">
+          <div class="src-label">Geoportal</div>
+          <a href="https://geo.zh.ch/maps?x=2682088&amp;y=1253620&amp;scale=282230&amp;basemap=arelkbackgroundzh"
+             target="_blank" rel="noopener noreferrer">GIS-Browser Kanton Z&uuml;rich</a>
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0076bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="source-text">
+          <div class="src-label">Gebietsstammdaten ZH</div>
+          <a href="https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich"
+             target="_blank" rel="noopener noreferrer">Datenkatalog ZH</a>
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0076bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="source-text">
+          <div class="src-label">Z&uuml;rcher Gemeinden in Zahlen</div>
+          <a href="https://zgz.statistik.zh.ch/"
+             target="_blank" rel="noopener noreferrer">Statistikportal ZGZ</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>&copy; Statistisches Amt des Kantons Z&uuml;rich, 2026</footer>
+
+</div>
+</body>
+</html>
+
